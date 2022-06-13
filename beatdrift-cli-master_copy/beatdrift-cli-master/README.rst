@@ -27,38 +27,47 @@ cp __main__.py ~/bin/beatdrift-cli-master
 The user would then be able to run the program using commands such as:
 beatdrift-cli query --region us-east-1 --service ec2 --directory ./listdataCheck2/
 
-However, since full integration was not achieved in the project, if the user is having problems with the execution or have prompts about missing modules, you can utilize the ‘aws-list-all’ package incorporated by BeatDrift-cli (with credit given in the notice to the author) to achieve the same results of crawling AWS resources and storing them as json files within the designated directory/folder within the project’s  folder:
+
+
+However, since full integration was not achieved in the project, if the user is having problems with the execution or have prompts about missing modules, you can utilize the ‘aws-list-all’ package incorporated by BeatDrift-cli (with credit given in the notice to the author) to achieve the same results of crawling AWS resources and storing them as json files within the designated directory/folder within the project’s  folder.
+
 
 AWS resources can be crawled by installing and using the “aws-list-all” package by entering the commands:
 
-(whichever python version you are using) I.e: python3 aws
+(Check the path of whichever python version you are using and also the path of the aws cli) I.e::
 
-Then:
+
+(which python3) aws
+
+
+Then enter was to check if you have the was cli 
+
+aws
+
+
+Then::
 
 pip install aws-list-all
 
 
-If you are using a virtual environment simply enter the below code:
+After installation in the user's chosen directory, the user is able 'cd' into the directory of choice to query specific AWS resources by typing in the following::
 
-mkvirtualenv -p $(which python3) aws
+cd /directoryOFChoice ::
 
+$ cd /beatdrift-cli
 
-pip install aws-list-all
-
-After installation, The user is able to query specific AWS resources by typing in the following.
-
-aws-list-all query --region us-east-1 --service ec2 --directory ./listdataCheck2/demo
+Then enter
 
 
+aws_list_all query --region us-east-1 --service ec2 --directory ./list_data/
+
+So input will look like, please note that "beatdrift-cli$" represents the name of the project directory we are in, and not part of the commands at this stage of integration::
 
 
-Quick Start with virtualenv::
+beatdrift-cli$  aws_list_all query --region us-east-1 --service ec2 --directory ./list_data/
 
-  mkvirtualenv -p $(which python3) aws
-  pip install beatdrift-cli (coming soon)
-  beatdrift-cli  query --region us-east-1 --service ec2 --directory ./list_data/
 
-Quick Start Output::
+Output::
 
   ---------------8<--(snippet)--8<---------------------
 	
@@ -85,6 +94,16 @@ Quick Start Output::
 		!!! ec2 us-east-1 GetAssociatedEnclaveCertificateIamRoles None ClientError('An error occurred (InvalidCertificateArn.Malformed) when calling the GetAssociatedEnclaveCertificateIamRoles operation: The request must contain a valid certificate arn')
 		!!! ec2 us-east-1 GetSerialConsoleAccessStatus None Exception('No listing: SerialConsoleAccessEnabled is no list:', {'SerialConsoleAccessEnabled': False})
 		!!! ec2 us-east-1 GetTransitGatewayMulticastDomainAssociations None ClientError('An error occurred (MissingParameter) when calling the GetTransitGatewayMulticastDomainAssociations operation: Missing required parameter in request: TransitGatewayMulticastDomainId.') SamplingStatisticSummaries
+--------------->8------------------>8---------------
+
+- For queries with no limitation on  specific services enter:
+
+beatdrift-cli $ aws-list-all query --region us-east-1 --directory ./listdata2/demo2
+
+
+Truncated Output::
+
+  ---------------8<--(snippet)--8<---------------------
 	+++ appconfig us-east-1 ListDeploymentStrategies None Items
 	+++ appstream us-east-1 DescribeImages None Images, truncated
 	+++ athena us-east-1 ListDataCatalogs None DataCatalogsSummary
@@ -158,8 +177,8 @@ this may change in the future.
 Details about found resources are saved in json files named after the service,
 region, and operation used to find them. They can be dumped with::
 
-  beatdrift-cli show data/ec2_*
-  beatdrift-cli show --verbose data/ec2_DescribeSecurityGroups_eu-west-1.json
+  beatdrift-cli$ aws_list_all  show data/ec2_*
+  beatdrift-cli$ aws_list_all show --verbose data/ec2_DescribeSecurityGroups_eu-west-1.json
 
 Special treatment and removal of default resources which are performed by default during
 data handling can be omitted with --unfilter and following arguments:
@@ -199,39 +218,75 @@ How do I really list everything?
 ------------------------------------------------
 
 Warning: As AWS has over 1024 API endpoints, you might have to increase the allowed number of open files on your end.
-See https://github.com/Jase-The-Ace/beatdrift-cli/issues/1
+See https://github.com/Jase-The-Ace/beatdrift-cli/issues/
+
+To open an issue and contribute to the project.
 
 Restricting the region and. service is optional, a simple ``query`` without arguments lists everything.
 
 A thread pool is used to run queries in parallel and randomize the order to avoid
-hitting one endpoint in close succession. One run takes around three to 4 minutes on average base don your machine and connection.
+hitting one endpoint in close succession. One run takes around three to 4 minutes on average based on your machine and connection.
 
 More Examples
 -------------
 
 Add immediate, more verbose output to a query with ``--verbose``. Use twice for even more verbosity::
 
-  beatdrift-cli query --region eu-west-1 --service ec2 --operation DescribeVpcs --directory data --verbose
+  beatdrift-cli$ aws_list_all query --region eu-west-1 --service ec2 --operation DescribeVpcs --directory data --verbose
 
 Show resources for all returned queries::
 
-  beatdrift-cli show --verbose data/*
+  beatdrift-cli$ aws_list_all show --verbose data/*
 
 Show resources for all ec2 returned queries::
 
-  beatdrift-cli show --verbose data/ec2*
+  beatdrift-cli$ aws_list_all show --verbose data/ec2*
 
 List available services to query::
 
-  beatdrift-cli introspect list-services
+  beatdrift-cli$ aws_list_all introspect list-services
 
 List available operations for a given service, do::
 
-  beatdrift-cli introspect list-operations --service ec2
+  beatdrift-cli$ aws_list_all introspect list-operations --service ec2
 
 List all resources in sequence to avoid throttling::
 
-  beatdrift-cli query --parallel 1
+  beatdrift-cli$ aws_list_all query --parallel 1
 
 
-Github link: 
+
+- To create and use a virtual environment to isolate project from other versions of python on your machine:
+
+- Install pip::
+
+sudo easy_install pip
+
+- Install virtualenv package
+
+Enter this command into terminal::
+
+sudo pip install virtualenv
+
+or if you get an error enter this alternate command::
+
+sudo -H pip install virtualenv
+
+- Start virtualenv
+
+Go to the place you want to store your code, then create a new directory::
+mkdir test_project && cd test_project
+
+While inside the 'test_project' folder/ directory, create a new virtualenv::
+
+virtualenv env
+
+
+source env/bin/activate
+
+
+Github link: https://github.com/Jase-The-Ace/beatdrift-cli
+
+
+
+
