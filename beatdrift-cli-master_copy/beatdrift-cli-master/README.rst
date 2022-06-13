@@ -91,14 +91,25 @@ Output::
 		+++ ec2 us-east-1 DescribeVolumeStatus None VolumeStatuses
 		+++ ec2 us-east-1 DescribeVolumes None Volumes
 		+++ ec2 us-east-1 GetVpnConnectionDeviceTypes None VpnConnectionDeviceTypes
-		!!! ec2 us-east-1 DescribeInstanceEventNotificationAttributes None Exception('No listing: InstanceTagAttribute is no list:', {'InstanceTagAttribute': {'InstanceTagKeys': [], 'IncludeAllTagsOfInstance': False}})
-		!!! ec2 us-east-1 DescribeTrunkInterfaceAssociations None ClientError('An error occurred (OperationNotPermitted) when calling the DescribeTrunkInterfaceAssociations operation: User 637333041330 is not permitted to perform this operation')
-		!!! ec2 us-east-1 GetAssociatedEnclaveCertificateIamRoles None ClientError('An error occurred (InvalidCertificateArn.Malformed) when calling the GetAssociatedEnclaveCertificateIamRoles operation: The request must contain a valid certificate arn')
-		!!! ec2 us-east-1 GetSerialConsoleAccessStatus None Exception('No listing: SerialConsoleAccessEnabled is no list:', {'SerialConsoleAccessEnabled': False})
-		!!! ec2 us-east-1 GetTransitGatewayMulticastDomainAssociations None ClientError('An error occurred (MissingParameter) when calling the GetTransitGatewayMulticastDomainAssociations operation: Missing required parameter in request: TransitGatewayMulticastDomainId.') SamplingStatisticSummaries
---------------->8------------------>8---------------
+		!!! ec2 us-east-1 DescribeInstanceEventNotificationAttributes None Exception('No 	
+		listing: InstanceTagAttribute is no list:', {'InstanceTagAttribute': 	
+		{'InstanceTagKeys': [], 'IncludeAllTagsOfInstance': False}})
+		!!! ec2 us-east-1 DescribeTrunkInterfaceAssociations None ClientError('An error 
+		occurred (OperationNotPermitted) when calling the DescribeTrunkInterfaceAssociations 
+		operation: User 637333041330 is not permitted to perform this operation')
+		!!! ec2 us-east-1 GetAssociatedEnclaveCertificateIamRoles None ClientError('An error 
+		occurred (InvalidCertificateArn.Malformed) when calling the 
+		GetAssociatedEnclaveCertificateIamRoles operation: The request must contain a valid 
+		certificate arn')
+		!!! ec2 us-east-1 GetSerialConsoleAccessStatus None Exception('No listing: 
+		SerialConsoleAccessEnabled is no list:', {'SerialConsoleAccessEnabled': False})
+		!!! ec2 us-east-1 GetTransitGatewayMulticastDomainAssociations None ClientError('An 
+		error occurred (MissingParameter) when calling the 
+		GetTransitGatewayMulticastDomainAssociations operation: Missing required parameter 
+		in request: TransitGatewayMulticastDomainId.') SamplingStatisticSummaries
+		--------------->8------------------>8---------------
 
-- For queries with no limitation on  specific services enter:
+- For queries with no limitation on  specific services enter::
 
 beatdrift-cli $ aws-list-all query --region us-east-1 --directory ./listdata2/demo2
 
@@ -157,13 +168,19 @@ Truncated Output::
  	+++ schemas us-east-1 ListRegistries None Registries
 	+++ snowball us-east-1 ListCompatibleImages None CompatibleImages
 	+++ ssm us-east-1 ListCommandInvocations None CommandInvocations, truncated
-	>:| ce us-east-1 ListCostCategoryDefinitions None ClientError("An error occurred (AccessDeniedException) when calling the 			    
-	ListCostCategoryDefinitions operation: Failed to list Cost Categories: Linked account doesn't have access to cost category.")
-	>:| detective us-east-1 ListOrganizationAdminAccounts None ClientError('An error occurred (AccessDeniedException) when calling the 	
-	ListOrganizationAdminAccounts operation: Caller is not an organization manager or delegated administrator')
-	>:| fms us-east-1 ListAppsLists None ClientError('An error occurred (AccessDeniedException) when calling the ListAppsLists operation: 	
+	>:| ce us-east-1 ListCostCategoryDefinitions None ClientError("An error occurred 	
+	(AccessDeniedException) when calling the 			    
+	ListCostCategoryDefinitions operation: Failed to list Cost Categories: Linked account doesn't 
+	have access to cost category.")
+	>:| detective us-east-1 ListOrganizationAdminAccounts None ClientError('An error occurred 
+	(AccessDeniedException) when calling the 	
+	ListOrganizationAdminAccounts operation: Caller is not an organization manager or delegated 
+	administrator')
+	>:| fms us-east-1 ListAppsLists None ClientError('An error occurred (AccessDeniedException) 
+	when calling the ListAppsLists operation: 	
 	Account: 637333041330 is not currently delegated by AWS FM.')
-	>:| fms us-east-1 ListProtocolsLists None ClientError('An error occurred (AccessDeniedException) when calling the ListProtocolsLists
+	>:| fms us-east-1 ListProtocolsLists None ClientError('An error occurred 
+	(AccessDeniedException) when calling the ListProtocolsLists
 	operation: Account: 637333041330 is not currently delegated by AWS FM.')
 	--------------->8------------------>8---------------
 
@@ -229,7 +246,7 @@ To open an issue and contribute to the project.
 
 Restricting the region and. service is optional, a simple ``query`` without arguments lists everything.
 
-A thread pool is used to run queries in parallel and randomize the order to avoid
+A thread pool is used to run queries in parallel and randomise the order to avoid
 hitting one endpoint in close succession. One run takes around three to 4 minutes on average based on your machine and connection.
 
 More Examples
