@@ -1,0 +1,3 @@
+include LICENSE
+include beatdrift-cli/endpoint_hosts.json
+include beatdrift-cli/service_regions.json
