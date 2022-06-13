@@ -22,9 +22,11 @@ Please enter :
 chmod +x __main__.py
 
 Then :
+
 cp __main__.py ~/bin/beatdrift-cli-master
 
 The user would then be able to run the program using commands such as:
+
 beatdrift-cli query --region us-east-1 --service ec2 --directory ./listdataCheck2/
 
 
@@ -40,28 +42,28 @@ AWS resources can be crawled by installing and using the “aws-list-all” pack
 (which python3) aws
 
 
-Then enter was to check if you have the was cli 
+Then enter was to check if you have the aws cli:: 
 
 aws
 
 
-Then::
+Then enter the below::
 
 pip install aws-list-all
 
 
 After installation in the user's chosen directory, the user is able 'cd' into the directory of choice to query specific AWS resources by typing in the following::
 
-cd /directoryOFChoice ::
+cd /directoryOFChoice 
 
 $ cd /beatdrift-cli
 
-Then enter
 
+Then enter::
 
 aws_list_all query --region us-east-1 --service ec2 --directory ./list_data/
 
-So input will look like, please note that "beatdrift-cli$" represents the name of the project directory we are in, and not part of the commands at this stage of integration::
+So input will look like the below; please note that "beatdrift-cli$" represents the name of the project directory we are in, and not part of the commands at this stage of integration::
 
 
 beatdrift-cli$  aws_list_all query --region us-east-1 --service ec2 --directory ./list_data/
@@ -144,23 +146,26 @@ Truncated Output::
 	+++ iam None ListSAMLProviders None SAMLProviderList
 	+++ iam None ListUsers None Users
 	+++ inspector us-east-1 ListFindings None findingArns, truncated
-	
-+++ rds us-east-1 DescribeDBSubnetGroups None DBSubnetGroups
-+++ rds us-east-1 DescribePendingMaintenanceActions None PendingMaintenanceActions
-+++ resource-groups us-east-1 ListGroups None GroupIdentifiers, Groups, truncated
-+++ route53resolver us-east-1 ListFirewallConfigs None FirewallConfigs
-+++ route53resolver us-east-1 ListFirewallDomainLists None FirewallDomainLists
-+++ route53resolver us-east-1 ListResolverConfigs None ResolverConfigs
-+++ s3 None ListBuckets None Buckets
-+++ sagemaker us-east-1 ListModelMetadata None ModelMetadataSummaries
-+++ schemas us-east-1 ListRegistries None Registries
-+++ snowball us-east-1 ListCompatibleImages None CompatibleImages
-+++ ssm us-east-1 ListCommandInvocations None CommandInvocations, truncated
->:| ce us-east-1 ListCostCategoryDefinitions None ClientError("An error occurred (AccessDeniedException) when calling the ListCostCategoryDefinitions operation: Failed to list Cost Categories: Linked account doesn't have access to cost category.")
->:| detective us-east-1 ListOrganizationAdminAccounts None ClientError('An error occurred (AccessDeniedException) when calling the ListOrganizationAdminAccounts operation: Caller is not an organization manager or delegated administrator')
->:| fms us-east-1 ListAppsLists None ClientError('An error occurred (AccessDeniedException) when calling the ListAppsLists operation: Account: 637333041330 is not currently delegated by AWS FM.')
->:| fms us-east-1 ListProtocolsLists None ClientError('An error occurred (AccessDeniedException) when calling the ListProtocolsLists operation: Account: 637333041330 is not currently delegated by AWS FM.')
---------------->8------------------>8---------------
+	+++ rds us-east-1 DescribeDBSubnetGroups None DBSubnetGroups
+	+++ rds us-east-1 DescribePendingMaintenanceActions None PendingMaintenanceActions
+	+++ resource-groups us-east-1 ListGroups None GroupIdentifiers, Groups, truncated
+	+++ route53resolver us-east-1 ListFirewallConfigs None FirewallConfigs
+	+++ route53resolver us-east-1 ListFirewallDomainLists None FirewallDomainLists
+	+++ route53resolver us-east-1 ListResolverConfigs None ResolverConfigs
+	+++ s3 None ListBuckets None Buckets
+	+++ sagemaker us-east-1 ListModelMetadata None ModelMetadataSummaries
+ 	+++ schemas us-east-1 ListRegistries None Registries
+	+++ snowball us-east-1 ListCompatibleImages None CompatibleImages
+	+++ ssm us-east-1 ListCommandInvocations None CommandInvocations, truncated
+	>:| ce us-east-1 ListCostCategoryDefinitions None ClientError("An error occurred (AccessDeniedException) when calling the 			    
+	ListCostCategoryDefinitions operation: Failed to list Cost Categories: Linked account doesn't have access to cost category.")
+	>:| detective us-east-1 ListOrganizationAdminAccounts None ClientError('An error occurred (AccessDeniedException) when calling the 	
+	ListOrganizationAdminAccounts operation: Caller is not an organization manager or delegated administrator')
+	>:| fms us-east-1 ListAppsLists None ClientError('An error occurred (AccessDeniedException) when calling the ListAppsLists operation: 	
+	Account: 637333041330 is not currently delegated by AWS FM.')
+	>:| fms us-east-1 ListProtocolsLists None ClientError('An error occurred (AccessDeniedException) when calling the ListProtocolsLists
+	operation: Account: 637333041330 is not currently delegated by AWS FM.')
+	--------------->8------------------>8---------------
 
 In the list, the lines starting with:
 
