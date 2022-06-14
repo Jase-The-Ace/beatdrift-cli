@@ -309,6 +309,8 @@ source env/bin/activate
 
 Github link: https://github.com/Jase-The-Ace/beatdrift-cli
 
+Gantt chart link: https://myune-my.sharepoint.com/:x:/g/personal/jaboh_myune_edu_au/EU5kr7Re2a9CnU4fRCBhq_YBGvabGloruMc27JQSQGF3Fg
+
 
 
 
