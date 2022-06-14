@@ -3,7 +3,11 @@ beat\drift\-cli
 
 A Command Line Interface (CLI) that can be used to detect infrastructural drift (differences) between AWS service resources and Infrastructure As Code (IaC) environment states on IaC platform Terraform.
 
-Please note that this tool was adapted from the "aws_list_all" library package
+Please note that the AWS crawler used in this tool was adapted from the "aws_list_all" library package
+
+** And within the "drift comparison proposal" folder is experimental code from Jason A.; that with some more tweaks will be able to retrieve AWS resources from a given AWS account and compare the list of resources and policies with the resources and policies contained in the Terraform State file.**
+
+- However, the below section of this readme document covers the use of the stand alone AWS crawler that was adapted by beatdrift-cli, since the others terraform wrapper and lack of a solution did not provide anything that could be integrated with the crawler:
 
 List all resources in a configured AWS account, including all regions, and services(*) with the options to writes JSON files for further use, which can be stored in the directory entered and used to compare with a possible list terraform resources to identify differences and inform the user of  the infrastructural drift identified.
 
