@@ -251,7 +251,7 @@ To open an issue and contribute to the project.
 Restricting the region and. service is optional, a simple ``query`` without arguments lists everything.
 
 A thread pool is used to run queries in parallel and randomise the order to avoid
-hitting one endpoint in close succession. One run takes around three to 4 minutes on average based on your machine and connection.
+hitting one endpoint in close succession. One run takes around three to 6 minutes on average based on your machine and connection.
 
 More Examples
 -------------
