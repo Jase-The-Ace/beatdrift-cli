@@ -315,6 +315,7 @@ Github link: https://github.com/Jase-The-Ace/beatdrift-cli
 
 Gantt chart link: https://myune-my.sharepoint.com/:x:/g/personal/jaboh_myune_edu_au/EU5kr7Re2a9CnU4fRCBhq_YBGvabGloruMc27JQSQGF3Fg
 
+Project brief presentation video: https://youtu.be/1YxfsuAzP8o
 
-
+Solution demonstration video to Client: https://youtu.be/kJUg_BJdpZ0 
 
